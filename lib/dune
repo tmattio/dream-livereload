@@ -1,0 +1,6 @@
+(library
+ (name dream_livereload)
+ (public_name dream-livereload)
+ (libraries dream lambdasoup)
+ (preprocess
+  (pps lwt_ppx)))
