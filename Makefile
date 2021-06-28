@@ -9,8 +9,6 @@ all:
 
 .PHONY: deps
 deps: ## Install development dependencies
-	opam pin -n -y git@github.com:ocaml/ocaml-lsp.git
-	opam pin -n -y git@github.com:aantron/dream.git
 	opam install -y dune-release merlin ocamlformat utop ocaml-lsp-server
 	npm install
 	opam install --deps-only --with-test --with-doc -y .
