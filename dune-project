@@ -1,4 +1,4 @@
-(lang dune 2.0)
+(lang dune 2.7)
 
 (name dream-livereload)
 
@@ -24,5 +24,8 @@
    (>= 4.08.0))
   dune
   dream
-  lambdasoup
+  (lambdasoup
+   (>= 0.6.1))
+  (lwt_ppx
+   (>= 2.0.2))
   (odoc :with-doc)))

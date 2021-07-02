@@ -21,9 +21,6 @@ jobs:
           - ubuntu-latest
         ocaml-compiler:
           - ocaml-base-compiler.4.12.0
-        include:
-          - os: windows-latest
-            ocaml-compiler: ocaml-variants.4.12.0+mingw64c
 
     steps:
       - name: Checkout code

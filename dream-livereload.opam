@@ -10,13 +10,14 @@ doc: "https://tmattio.github.io/dream-livereload/"
 bug-reports: "https://github.com/tmattio/dream-livereload/issues"
 depends: [
   "ocaml" {>= "4.08.0"}
-  "dune"
+  "dune" {>= "2.7"}
   "dream"
-  "lambdasoup"
+  "lambdasoup" {>= "0.6.1"}
+  "lwt_ppx" {>= "2.0.2"}
   "odoc" {with-doc}
 ]
 build: [
-  ["dune" "subst"] {pinned}
+  ["dune" "subst"] {dev}
   [
     "dune"
     "build"
