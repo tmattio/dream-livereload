@@ -1,8 +1,5 @@
 .DEFAULT_GOAL := all
 
-ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(eval $(ARGS):;@:)
-
 .PHONY: all
 all:
 	opam exec -- dune build --root . @install
@@ -14,7 +11,7 @@ deps: ## Install development dependencies
 
 .PHONY: create_switch
 create_switch:
-	opam switch create . 4.12.0 --no-install
+	opam switch create . --no-install
 
 .PHONY: switch
 switch: create_switch deps ## Create an opam switch and install development dependencies
@@ -31,9 +28,9 @@ build: ## Build the project, including non installable libraries and executables
 install: all ## Install the packages on the system
 	opam exec -- dune install --root .
 
-.PHONY: start
-start: all ## Run the produced executable
-	opam exec -- dune exec --root . bin/server.exe $(ARGS)
+.PHONY: example
+example: all ## Run the produced executable
+	opam exec -- dune exec --root . example/server.exe
 
 .PHONY: test
 test: ## Run the unit tests
