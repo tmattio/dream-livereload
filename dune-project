@@ -26,6 +26,5 @@
   dream
   (lambdasoup
    (>= 0.6.1))
-  (lwt_ppx
-   (>= 2.0.2))
+  lwt_ppx
   (odoc :with-doc)))
