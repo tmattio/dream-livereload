@@ -20,6 +20,13 @@ let () =
   @@ Dream.not_found
 ```
 
+and `dream-livereload` to `dune`:
+
+<pre><code>(executable
+ (name my_app)
+ (libraries dream <b>dream-livereload</b>))
+</code></pre>
+
 This does two things:
 
 1. The middleware injects a script into the HTML documents sent by your application (HTTP responses with the `Content-Type: text/html`). The script opens a WebSocket connection to the server. When the connection is lost, the script tries to re-connect for 10 seconds, and upon a successfull re-connection, refreshes the current page.
