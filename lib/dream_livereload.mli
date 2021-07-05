@@ -1,4 +1,4 @@
-(** Dream Livereload implements live reloading for Dream applications.
+(** Dream Live Reload implements live reloading for Dream applications.
 
     It works by injecting a script in the HTML pages sent to clients that will
     initiate a WebSocket.
