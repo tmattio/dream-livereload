@@ -55,7 +55,7 @@ let inject_script
     : Dream.response Lwt.t
   =
   let%lwt response = next_handler request in
-  match Dream.header "Content-Type" response with
+  match Dream.header response "Content-Type" with
   | Some "text/html" | Some "text/html; charset=utf-8" ->
     let%lwt body = Dream.body response in
     let soup =
@@ -70,7 +70,9 @@ let inject_script
       Lwt.return response
     | Some head ->
       Soup.create_element "script" ~inner_text:script |> Soup.append_child head;
-      Lwt.return (Dream.with_body (Soup.to_string soup) response))
+      Dream.set_body response (Soup.to_string soup);
+      Lwt.return response
+      )
   | _ ->
     Lwt.return response
 
