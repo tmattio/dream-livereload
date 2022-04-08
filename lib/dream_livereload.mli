@@ -29,7 +29,7 @@ val route : ?path:string -> unit -> Dream.route
     endpoint of the WebSocket if you provided a custom script to
     [inject_script]. *)
 
-val router : Dream.middleware
+val router : Dream.handler
 (** A Dream router that contains [route]. *)
 
 val scope : string -> Dream.middleware list -> Dream.route
