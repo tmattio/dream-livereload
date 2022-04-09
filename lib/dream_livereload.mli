@@ -8,16 +8,12 @@
     client is able to reconnect to the server, it will trigger a reload of the
     page.*)
 
-val default_script
-  :  ?retry_interval_ms:int
-  -> ?max_retry_ms:int
-  -> ?route:string
-  -> unit
-  -> string
+val default_script :
+  ?retry_interval_ms:int -> ?max_retry_ms:int -> ?route:string -> unit -> string
 (** Default live reloading script used if no custom script is provided.
 
     [retry_interval_ms] defaults to defaults to 500ms, [max_retry_ms] defaults
-    to 5000ms and the default [route] is ["/_livereload"]. *)
+    to 10000ms and the default [route] is ["/_livereload"]. *)
 
 val inject_script : ?script:string -> unit -> Dream.middleware
 (** A middleware that injects the live reloading script in an HTML document. *)
