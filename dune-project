@@ -22,11 +22,10 @@
  (depends
   (ocaml
    (>= 4.08.0))
-  dune
-  dream
+  (dream
+   (>= 1.0.0~alpha3))
   (lambdasoup
    (>= 0.6.1))
   (markup
    (>= 1.0.2))
-  lwt_ppx
-  (odoc :with-doc)))
+  lwt_ppx))
